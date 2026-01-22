@@ -7,8 +7,8 @@ from aCS_aBUS import aCS_aBUS
 
 # Make sure ERADist, ERANataf classes are in the path
 # https://www.bgu.tum.de/era/software/eradist/
-from ERADist import ERADist
-from ERANataf import ERANataf
+from ERApy import ERADist
+from ERApy import ERANataf
 
 """
 ---------------------------------------------------------------------------

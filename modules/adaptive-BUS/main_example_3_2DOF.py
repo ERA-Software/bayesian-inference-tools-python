@@ -32,8 +32,8 @@ import matplotlib.pylab as plt
 
 # Make sure ERADist, ERANataf classes are in the path
 # https://www.bgu.tum.de/era/software/eradist/
-from ERADist import ERADist
-from ERANataf import ERANataf
+from ERApy import ERADist
+from ERApy import ERANataf
 from aBUS_SuS import aBUS_SuS
 from shear_building_2DOF import shear_building_2DOF
 plt.close('all')
