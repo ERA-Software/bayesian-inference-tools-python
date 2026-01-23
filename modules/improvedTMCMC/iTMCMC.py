@@ -5,8 +5,8 @@ np.seterr(all='ignore')
 
 # Make sure ERADist, ERANataf classes are in the path
 # https://www.bgu.tum.de/era/software/eradist/
-from ERADist import ERADist
-from ERANataf import ERANataf
+from ERApy import ERADist
+from ERApy import ERANataf
 
 """
 ---------------------------------------------------------------------------
@@ -195,9 +195,14 @@ def logsumexp(x):
     # subtract the largest in each column
     y = np.max(x,0)
     x = x-y
-    s = y + np.log(np.sum(np.exp(x),0));
-    i = np.where(~np.isfinite(y));
-    if i[0].size:
-        s[i] = y[i]
+    s = y + np.log(np.sum(np.exp(x),0))
+
+    #these three lines break in python when a scalar shows up. MatLab doesn't have that issue/doesn't care
+    #i = np.where(~np.isfinite(y))
+    #if i[0].size:
+    #    s[i] = y[i]
+
+    mask = ~np.isfinite(y)  # non-finite entries.
+    s = np.where(mask, y, s) #If condition/mask is True → take from y, else → take from s
     
     return s

@@ -28,8 +28,8 @@ References:
 # add path to ERADist and ERANataf classes
 # Source: https://www.bgu.tum.de/era/software/eradist/
 
-from ERADist import ERADist
-from ERANataf import ERANataf
+from ERApy import ERADist
+from ERApy import ERANataf
 from SMC_aCS import SMC_aCS
 from SMC_GM import SMC_GM
 

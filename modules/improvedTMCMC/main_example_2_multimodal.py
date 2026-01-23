@@ -34,8 +34,8 @@ import matplotlib.pylab as plt
 
 # Make sure ERADist, ERANataf classes are in the path
 # https://www.bgu.tum.de/era/software/eradist/
-from ERADist import ERADist
-from ERANataf import ERANataf
+from ERApy import ERADist
+from ERApy import ERANataf
 from iTMCMC import iTMCMC
 plt.close('all')
 np.random.seed(2021)   # fix seed
