@@ -4,8 +4,8 @@ Import main libraries
 
 import numpy as np
 import scipy as sp
-from ERApy import ERANataf
-from ERApy import ERADist
+from eraUQ import ERANataf
+from eraUQ import ERADist
 from EMGM import EMGM
 from EMGM_log import EMGM_log
 

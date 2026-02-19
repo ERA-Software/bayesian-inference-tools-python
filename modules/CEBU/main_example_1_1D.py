@@ -36,8 +36,8 @@ import matplotlib.pylab as plt
 from CEBU_GM import CEBU_GM
 from CEBU_vMFNM import CEBU_vMFNM
 from loglikelihood_helper_functions import loglikelihood, MEfraction
-from ERADist import ERADist
-from ERANataf import ERANataf
+from eraUQ import ERADist
+from eraUQ import ERANataf
 plt.close('all')
 
 #=================================================================

@@ -1,4 +1,4 @@
-from argon2 import Type
+#from argon2 import Type  #commented out, as it is not used. Can be deleted
 import numpy as np
 import scipy as sp
 np.seterr(all='ignore')

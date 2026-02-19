@@ -5,8 +5,8 @@ Import main libraries
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
-from ERANataf import ERANataf
-from ERADist import ERADist
+from eraUQ import ERANataf
+from eraUQ import ERADist
 from EMvMFNM import EMvMFNM
 from EMvMFNM_log import EMvMFNM_log
 
@@ -472,11 +472,19 @@ def logsumexp(x, dim=0):
     y = np.expand_dims(y,axis=dim)
     x = np.subtract(x , y)
     s = np.add(y ,   np.expand_dims(np.log(np.sum(np.exp(x), axis=dim)) , axis=dim ) )
-    # if a bug occurs here, maybe find a better translation from matlab:
-    i = np.where(np.invert(np.isfinite(y).squeeze()))
 
-    if np.size(i)!=0:
-        s[i] = y[i]
+    # if a bug occurs here, maybe find a better translation from matlab.
+
+    # Note from FlorianB: ^^ yes, bugs started happening. These three lines break in python when
+    # a scalar shows up. MatLab doesn't have that issue/doesn't care
+
+    #i = np.where(np.invert(np.isfinite(y).squeeze()))
+    #if np.size(i)!=0:
+    #    s[i] = y[i]
+
+    # FlorianbB: These seem to have fixxed the issue. The method now works in python.
+    mask = ~np.isfinite(y)  # non-finite entries.
+    s = np.where(mask, y, s) #If condition/mask is True → take from y, else → take from s
 
     return s
 
