@@ -38,8 +38,8 @@ import matplotlib.pylab as plt
 # Import In House Functions
 from CEBU_GM import CEBU_GM
 from CEBU_vMFNM import CEBU_vMFNM
-from ERADist import ERADist
-from ERANataf import ERANataf
+from eraUQ import ERADist
+from eraUQ import ERANataf
 from shear_building_2DOF import shear_building_2DOF
 plt.close('all')
 

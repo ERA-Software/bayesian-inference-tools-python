@@ -34,8 +34,8 @@ import matplotlib.pylab as plt
 
 # Make sure ERADist, ERANataf classes are in the path
 # https://www.bgu.tum.de/era/software/eradist/
-from ERADist import ERADist
-from ERANataf import ERANataf
+from eraUQ import ERADist
+from eraUQ import ERANataf
 from aBUS_SuS import aBUS_SuS
 plt.close('all')
 np.random.seed(123)   # fix seed

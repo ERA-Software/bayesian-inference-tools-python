@@ -32,8 +32,8 @@ import matplotlib.pyplot as plt
 # Import In House Functions
 from CEBU_GM import CEBU_GM
 from CEBU_vMFNM import CEBU_vMFNM
-from ERADist import ERADist
-from ERANataf import ERANataf
+from eraUQ import ERADist
+from eraUQ import ERANataf
 
 # initial data
 d = 2       # number of dimensions (number of uncertain parameters)

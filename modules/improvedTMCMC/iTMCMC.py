@@ -5,8 +5,8 @@ np.seterr(all='ignore')
 
 # Make sure ERADist, ERANataf classes are in the path
 # https://www.bgu.tum.de/era/software/eradist/
-from ERADist import ERADist
-from ERANataf import ERANataf
+from eraUQ import ERADist
+from eraUQ import ERANataf
 
 """
 ---------------------------------------------------------------------------
@@ -97,6 +97,7 @@ def iTMCMC(Ns, Nb, log_likelihood, T_nataf):
         # w_j = likelihood^(e), but we are using the log_likelihood, then:
         fun = lambda e: np.std(np.exp(np.abs(e)*logL_j)) - thres_p*np.mean(np.exp(np.abs(e)*logL_j))   # c.o.v equation
         e   = sp.optimize.fsolve(fun, 0)
+        e   = float(np.asarray(e).flat[0])   # fsolve may return array or scalar; ensure scalar
         if e != np.nan:
             q[j] = np.minimum(1, q[j-1]+e)
         else:
@@ -195,9 +196,8 @@ def logsumexp(x):
     # subtract the largest in each column
     y = np.max(x,0)
     x = x-y
-    s = y + np.log(np.sum(np.exp(x),0));
-    i = np.where(~np.isfinite(y));
-    if i[0].size:
-        s[i] = y[i]
-    
+    s = y + np.log(np.sum(np.exp(x),0))
+
+    mask = ~np.isfinite(y)
+    s = np.where(mask, y, s)
     return s

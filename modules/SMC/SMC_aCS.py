@@ -3,8 +3,6 @@ import math
 import scipy as sp
 from scipy import stats, optimize
 
-from ERADist import ERADist
-from ERANataf import ERANataf
 """
 ---------------------------------------------------------------------------
 Created by:

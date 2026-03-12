@@ -23,8 +23,8 @@ References:
 % add path to ERADist and ERANataf classes
 % Source: https://www.bgu.tum.de/era/software/eradist/
 """
-from ERADist import ERADist
-from ERANataf import ERANataf
+from eraUQ import ERADist
+from eraUQ import ERANataf
 from SMC_aCS import SMC_aCS
 from SMC_GM import SMC_GM
 
